@@ -121,6 +121,7 @@
     <span id="place-address"></span>
 </div>
 
+<script type="application/javascript" src="../env.js"></script>
 <script>
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
@@ -164,9 +165,9 @@
                 return;
             }
 
-            //console.log(place);
-            console.log(place.geometry.location.lat());
-            console.log(place.geometry.location.lng());
+            console.log(place);
+            // console.log(place.geometry.location.lat());
+            // console.log(place.geometry.location.lng());
 
             // If the place has a geometry, then present it on a map.
             if (place.geometry.viewport) {
@@ -213,8 +214,20 @@
                 autocomplete.setOptions({strictBounds: this.checked});
             });
     }
+
+    var JSLink = "https://maps.googleapis.com/maps/api/js?key="+MAP_KEY+"&libraries=places&callback=initMap";
+    var JSElement = document.createElement('script');
+    JSElement.src = JSLink;
+    JSElement.onload = OnceLoaded;
+    document.getElementsByTagName('head')[0].appendChild(JSElement);
+
+    function OnceLoaded() {
+        // Once loaded.. load other JS or CSS or call objects of version.js
+        console.log("maps.googleapis.com script loaded..")
+    }
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=KEY&libraries=places&callback=initMap"
-        async defer></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=KEY&libraries=places&callback=initMap"-->
+        <!--async defer></script>-->
 </body>
 </html>
