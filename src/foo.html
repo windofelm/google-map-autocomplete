@@ -215,7 +215,7 @@
             });
     }
 
-    var JSLink = "https://maps.googleapis.com/maps/api/js?key="+MAP_KEY+"&libraries=places&callback=initMap";
+    var JSLink = "https://maps.googleapis.com/maps/api/js?key="+env.MAP_KEY+"&libraries=places&callback=initMap";
     var JSElement = document.createElement('script');
     JSElement.src = JSLink;
     JSElement.onload = OnceLoaded;
